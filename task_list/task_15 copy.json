@@ -1,0 +1,55 @@
+{
+    "title": "2F Gripper",
+    "task_list": [
+        {"task": "Delay", "target": 500, "unit": "Home Pos"},
+        {"task": "Gripper_open", "target": 0, "unit": " "},
+        {"task": "Delay", "target": 2000, "unit": "Home Pos"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.1551, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.2], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 5000, "unit": ""},
+        {"task": "Gripper_close", "target": 0, "unit": ""},
+        {"task": "Delay", "target": 3500, "unit": ""},
+
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+
+        {"task": "Delay", "target": 10, "unit": "Roll"},
+        {"task": "Linear_absolute", "target": [-0.194, 0.49, 0.482, -0.0, -3.051, -0.946],"vel_acc": [1.0, 1.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_absolute", "target": [-0.194, 0.49, 0.482, 0.0, -3.051, 0.946],"vel_acc": [1.0, 1.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 1200, "unit": "홈 포즈"},
+
+        {"task": "Delay", "target": 10, "unit": "Pitch"},
+        {"task": "Linear_absolute", "target": [-0.194, 0.49, 0.482, -0.0, -2.434, -0.0],"vel_acc": [1.0, 1.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_absolute", "target": [-0.194, 0.49, 0.482, 0.0, 2.379, 0.0],"vel_acc": [1.0, 1.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [0.5, 1.5], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 1200, "unit": "홈 포즈"},
+
+        {"task": "Delay", "target": 10, "unit": "Yaw"},
+        {"task": "Linear_absolute", "target": [-0.194, 0.49, 0.482, 1.826, -2.557, -0.0],"vel_acc": [1.0, 1.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_absolute", "target": [-0.194, 0.49, 0.482, -1.775, -2.592, -0.0],"vel_acc": [1.0, 1.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 1200, "unit": "홈 포즈"},
+
+        {"task": "Delay", "target": 10, "unit": "X axis"},
+        {"task": "Linear_relative", "target": [-0.10, 0.0, 0.0, 0.0, 0.0, 0.0],"vel_acc": [1.0, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.10, 0.0, 0.0, 0.0, 0.0, 0.0],"vel_acc": [1.0, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 1200, "unit": "홈 포즈"},
+
+        {"task": "Delay", "target": 10, "unit": "Y axis"},
+        {"task": "Linear_relative", "target": [0.0, -0.10, 0.0, 0.0, 0.0, 0.0],"vel_acc": [1.0, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.10, 0.0, 0.0, 0.0, 0.0],"vel_acc": [1.0, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 1200, "unit": "홈 포즈"},
+
+        {"task": "Delay", "target": 10, "unit": "Z axis"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.10, 0.0, 0.0, 0.0],"vel_acc": [1.0, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.10, 0.0, 0.0, 0.0],"vel_acc": [1.0, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [130.971, -74.103, -123.478, -72.396, 90.115, 220.974],"vel_acc": [1.0, 2.0], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 10, "unit": "홈 포즈"}
+    ]
+}

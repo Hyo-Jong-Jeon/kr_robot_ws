@@ -1,0 +1,10 @@
+{
+    "title": "Tool 1 Attach",
+    "task_list": [
+        {"task": "Linear_absolute", "target": [-0.1368, 0.7194, 0.4416, 0.000, -3.141592, 0.000],"vel_acc": [0.1, 0.1], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 200, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.1, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 500, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.05, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.1], "unit": "deg, deg/s, deg/s^2"}
+    ]
+}

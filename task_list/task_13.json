@@ -1,0 +1,7 @@
+{
+    "title": "3F Gripper",
+    "task_list": [
+        {"task": "Gripper_close", "target": 0, "unit": "Pos init"},
+        {"task": "Motor_pos", "target": -2000}
+    ]
+}

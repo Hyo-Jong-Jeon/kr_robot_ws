@@ -1,0 +1,23 @@
+{
+    "title": "Sample Code",
+    "task_list": [
+        {"task": "Gripper_finger_pos", "target": 500, "unit": " "},
+        {"task": "Motor_pos", "target": 1000},
+        {"task": "Gripper_open", "target": 0, "unit": " "},
+        {"task": "Gripper_close", "target": 0, "unit": " "},
+        {"task": "Gripper_init", "target": 0, "unit": " "},
+        {"task": "Gripper_init2", "target": 8500, "unit": " "},
+        {"task": "Vacuum_on", "target": 0, "unit": " "},
+        {"task": "Vacuum_off", "target": 0, "unit": " "},
+        {"task": "Delay", "target": 6000, "unit": "ms"},
+        {"task": "Linear_absolute", "target": [0.1482, 0.8194, 0.4916, 2.1795, 2.3105, -0.0594],"vel_acc": [0.1, 0.1], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.05, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [-26.036, -83.836, -103.278, -82.86, 90.327, 63.999],"vel_acc": [0.5, 1.5], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_relative", "target": [0.0, -10.12, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.5, 1.5], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Joint_path", "target":[[-26.036, -83.836, -103.278, -82.86, 90.327, 63.999, 0.2, 0.4, 0.0],
+                                          [-26.036, -83.836, -103.278, -82.86, 90.327, 63.999, 0.2, 0.4, 0.0],
+                                          [-26.036, -83.836, -103.278, -82.86, 90.327, 63.999, 0.2, 0.4, 0.0]
+                                        ], "unit": "태그: 속도, 가속도, 블렌드"}
+        
+    ]
+}

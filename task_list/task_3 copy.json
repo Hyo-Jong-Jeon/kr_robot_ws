@@ -1,0 +1,41 @@
+{
+    "title": "<<< 반복정밀도 테스트 >>>",
+    "task_list": [
+        {"task": "Delay", "target": 10, "unit": "홈 포즈"},
+        {"task": "Joint_absolute", "target": [103.662, -89.452, -102.014, -78.523, 90.116, -166.333],"vel_acc": [0.5, 1.5], "unit": "m, rad, m/s, m/s^2"},
+
+        {"task": "Delay", "target": 10, "unit": "정밀도 측정 장치 장착"},
+        {"task": "Linear_absolute", "target": [0.1482, 0.8194, 0.4906, 0.000, -3.141592, 0.000],"vel_acc": [0.5, 0.5], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.05, 0.0, 0.0, 0.0],"vel_acc": [0.2, 0.4], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 300, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, -0.15, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.2, 0.4], "unit": "deg, deg/s, deg/s^2"},
+
+        {"task": "Delay", "target": 10, "unit": "목표 위치 이동 1"},
+        {"task": "Joint_absolute", "target": [106.644, -79.294, -111.089, -79.607, 90.12, -163.362],"vel_acc": [0.5, 1.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [82.578, -86.43, -122.093, -61.473, 90.115, -187.381],"vel_acc": [0.5, 1.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 10, "unit": "측정시작"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.01, 0.0, 0.0, 0.0],"vel_acc": [0.01, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 2000, "unit": "웨이팅"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.01, 0.0, 0.0, 0.0],"vel_acc": [0.01, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        
+        {"task": "Delay", "target": 10, "unit": "목표 위치 이동 2"},
+        {"task": "Joint_absolute", "target": [106.644, -79.294, -111.089, -79.607, 90.12, -163.362],"vel_acc": [0.5, 1.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [95.475, -80.772, -138.243, -50.973, 90.115, -267.081],"vel_acc": [0.5, 1.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 10, "unit": "측정시작"},
+        {"task": "Linear_relative", "target": [0.01, 0.0, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.01, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 2000, "unit": "웨이팅"},
+        {"task": "Linear_relative", "target": [-0.01, 0.0, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.01, 0.1], "unit": "deg, deg/s, deg/s^2"},
+
+        {"task": "Delay", "target": 10, "unit": "홈 포즈"},
+        {"task": "Joint_absolute", "target": [103.662, -89.452, -102.014, -78.523, 90.116, -166.333],"vel_acc": [0.8, 1.6], "unit": "m, rad, m/s, m/s^2"},
+
+        {"task": "Delay", "target": 10, "unit": "진공 그리퍼 해제"},
+        {"task": "Linear_absolute", "target": [0.1482, 0.7194, 0.4416, 0.000, -3.141592, 0.000],"vel_acc": [0.5, 0.5], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.1, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.2, 0.4], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 300, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.05, 0.0, 0.0, 0.0],"vel_acc": [0.2, 0.4], "unit": "deg, deg/s, deg/s^2"},
+
+        {"task": "Rewind", "target": 0}
+
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "title": "<< 2-finger Tip-2 Change >>",
+    "task_list": [
+        {"task": "Joint_absolute", "target": [10.628, -68.004, -119.609, -82.37, 90.318, 100.68],"vel_acc": [0.5, 1.5], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_absolute", "target": [0.4255, -0.327, 0.22, -0.0, -2.902, -1.202],"vel_acc": [0.4, 1.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.0515, -0.0515, 0.0, 0.0, 0.0],"vel_acc": [0.2, 0.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 500, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.05, 0.05, 0.0, 0.0, 0.0],"vel_acc": [0.2, 1.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.0, -0.10, 0.10, 0.0, 0.0, 0.0],"vel_acc": [0.6, 1.2], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [-26.036, -83.836, -103.278, -82.86, 90.327, 63.999],"vel_acc": [0.5, 1.5], "unit": "m, rad, m/s, m/s^2"}
+    ]
+}

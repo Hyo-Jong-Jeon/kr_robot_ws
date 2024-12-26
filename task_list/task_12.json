@@ -1,0 +1,7 @@
+{
+    "title": "Demo 4",
+    "task_list": [
+        {"task": "Tool_Linear", "target": [0.01, 0, 0.0], "vel_acc": [0.1, 0.2], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Tool_Linear", "target": [0.01, 0, 0.0], "vel_acc": [0.1, 0.2], "unit": "m, rad, m/s, m/s^2"}
+    ]
+}

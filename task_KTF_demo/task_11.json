@@ -1,0 +1,11 @@
+{
+    "title": "<< 2-finger Tip-2 Dettach >>",
+    "task_list": [
+        {"task": "Joint_absolute", "target": [10.628, -68.004, -119.609, -82.37, 90.318, 100.68],"vel_acc": [0.8, 1.6], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_absolute", "target": [0.4255, -0.227, 0.22, -0.0, -2.902, -1.202],"vel_acc": [0.4, 1.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.0, -0.05, -0.05, 0.0, 0.0, 0.0],"vel_acc": [0.2, 0.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 800, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, -0.05, 0.05, 0.0, 0.0, 0.0],"vel_acc": [0.2, 0.5], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Joint_absolute", "target": [10.628, -68.004, -119.609, -82.37, 90.318, 100.68],"vel_acc": [0.8, 1.6], "unit": "m, rad, m/s, m/s^2"}
+    ]
+}

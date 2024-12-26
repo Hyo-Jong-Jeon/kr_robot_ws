@@ -1,0 +1,20 @@
+{
+    "title": "Tool 1 Task",
+    "task_list": [
+        {"task": "Gripper_finger_pos", "target": 500, "unit": " "},
+        {"task": "Delay", "target": 6000, "unit": "ms"},
+        {"task": "Linear_absolute", "target": [0.1482, 0.8194, 0.4916, 0.000, -3.141592, 0.000],"vel_acc": [0.1, 0.1], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 200, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.05, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 500, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, -0.10, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 500, "unit": "ms"},
+        {"task": "Linear_absolute", "target": [0.1482, 0.7194, 0.4416, 0.000, -3.141592, 0.000],"vel_acc": [0.1, 0.1], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 200, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.1, 0.0, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 500, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.05, 0.0, 0.0, 0.0],"vel_acc": [0.1, 0.1], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Rewind", "target": 0}
+        
+    ]
+}

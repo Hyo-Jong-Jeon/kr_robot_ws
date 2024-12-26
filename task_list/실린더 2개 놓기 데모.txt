@@ -1,0 +1,45 @@
+{
+    "title": "Demo: Cylinder 1",
+    "task_list": [
+        {"task": "Delay", "target": 10, "unit": "실린더 1번 바트 -> 목표위치"},
+        {"task": "Joint_absolute", "target": [10.628, -68.004, -119.609, -82.37, 90.318, 100.68],"vel_acc": [0.5, 0.5], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Linear_absolute", "target": [0.0307, -0.4361, 0.3881, 0.0, 3.1417, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Gripper_finger_pos", "target": 294, "unit": " "},
+        {"task": "Delay", "target": 600, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 300, "unit": "ms"},
+        {"task": "Gripper_close", "target": 0, "unit": " "},
+        {"task": "Delay", "target": 2000, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_absolute", "target": [0.3398, -0.4488, 0.3729, 2.1795, 2.3105, -0.0594], "vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 300, "unit": "ms"},
+        {"task": "Gripper_finger_pos", "target": 294, "unit": " "},
+        {"task": "Delay", "target": 2000, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+
+        {"task": "Delay", "target": 10, "unit": "실린더 2번 바트 -> 목표위치"},
+        {"task": "Linear_absolute", "target": [0.0336, -0.6335, 0.389, 0.0, 3.1415, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Gripper_finger_pos", "target": 294, "unit": " "},
+        {"task": "Delay", "target": 100, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 300, "unit": "ms"},
+        {"task": "Gripper_close", "target": 0, "unit": " "},
+        {"task": "Delay", "target": 2000, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_absolute", "target": [0.4789, -0.496, 0.3746, 0.0, 3.1513, 0.0], "vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, -0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+        {"task": "Delay", "target": 300, "unit": "ms"},
+        {"task": "Gripper_finger_pos", "target": 294, "unit": " "},
+        {"task": "Delay", "target": 2000, "unit": "ms"},
+        {"task": "Linear_relative", "target": [0.0, 0.0, 0.15, 0.0, 0.0, 0.0],"vel_acc": [0.4, 1.0], "unit": "deg, deg/s, deg/s^2"},
+
+        {"task": "Delay", "target": 5000, "unit": "다시 반대로 돌아가기 작업"},
+
+        {"task": "Delay", "target": 10, "unit": "실린더 1번 목표위치 -> 바트"},
+
+
+        {"task": "Gripper_close", "target": 0, "unit": " "},
+        {"task": "Joint_absolute", "target": [10.628, -68.004, -119.609, -82.37, 90.318, 100.68],"vel_acc": [0.5, 0.5], "unit": "m, rad, m/s, m/s^2"}
+    ]
+}

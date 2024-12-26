@@ -1,0 +1,8 @@
+{
+    "title": "Task planner 1",
+    "task_list": [
+        {"task": "Linear_relative", "target": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],"vel_acc": [1.2, 1.5], "unit": "mm, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 1000, "unit": "ms"},
+        {"task": "Linear_relative", "target": [2.0, 0.0, 0.0, 0.0, 0.0, 0.0],"vel_acc": [1.2, 1.5], "unit": "deg, deg/s, deg/s^2"}
+    ]
+}
