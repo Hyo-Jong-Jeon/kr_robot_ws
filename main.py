@@ -6,6 +6,7 @@ import subprocess #241128_KJ
 from scipy.spatial.transform import Rotation as R
 import numpy as np
 
+# PySide6 modules #
 from PySide6.QtGui import QCloseEvent
 from PySide6.QtWidgets import QApplication, QMainWindow, QGraphicsScene, QMessageBox, QWidget
 from PySide6.QtCore import QTimer, Slot, QMutex, QThread, Signal, Qt
