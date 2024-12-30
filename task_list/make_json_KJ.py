@@ -33,6 +33,7 @@ class JsonMaker:
     def joint_path(self, target, unit="joint[6], vel, acc, radius"):
         task = {"task": "Joint_path", "target": target, "unit": unit}
         self.task_list.append(task)
+        #ssssss
 
 
     def linear_absolute(self, target, vel_acc = [0.1, 0.2], unit="m, rad, m/s, m/s^2"):
