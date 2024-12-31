@@ -6,9 +6,10 @@ import rtde_control
 
 from threading import Thread
 from math import pi
-
+from Flexible_Clinet import FlexibleClient #241231_plotjuggler
 
 class UR_State(Thread):
+    plotjuggler = False
     refreshRate = 0.1 # Second
     connection = False
     stop_state = {'ProtectiveStopped': False, 'EmergencyStopped': False}
@@ -16,11 +17,18 @@ class UR_State(Thread):
     joint_state = {'actualQ': [0,0,0,0,0,0], 'actualQd': [0,0,0,0,0,0], 'actualCurrent': [0,0,0,0,0,0]}
     tcp_state = {'actualPos': [0,0,0,0,0,0], 'actualSpeed': [0,0,0,0,0,0], 'actualForce': [0,0,0,0,0,0]}
     
-    def __init__(self, IP_ADDRESS='192.168.0.16'):
+    def __init__(self, IP_ADDRESS='192.168.0.16', plotjuggler = True):
         try:
             super().__init__()
             self.rtde_r = rtde_receive.RTDEReceiveInterface(IP_ADDRESS)
             self.rtde_c = rtde_control.RTDEControlInterface(IP_ADDRESS)
+            self.plotjuggler = plotjuggler
+            if self.plotjuggler:  #241231_plotjuggler
+                try:
+                    self.UDP_client = FlexibleClient(protocol='UDP')
+                    print(">> PlotJuggler successfully connected.")
+                except Exception as e:
+                    print(e)
         except Exception as e:
             self.connection = False
             print(e)
@@ -31,10 +39,8 @@ class UR_State(Thread):
         
     def run(self):
         try:
-            print("Start local thread.")
-            count = 0
+            # print("Start local thread.")
             while True:
-                count += 1
                 self.stop_state['ProtectiveStopped'] = self.isProtectiveStopped()
                 self.stop_state['EmergencyStopped'] = self.isEmergencyStopped()
                 self.robot_state['ActualRobotVoltage'] = self.getActualRobotVoltage()
@@ -48,19 +54,21 @@ class UR_State(Thread):
                 self.tcp_state['actualPos'] = self.getActualTCPPose()
                 self.tcp_state['actualSpeed'] = self.getActualTCPSpeed()
                 # self.tcp_state['actualForce'] = self.getFtRawWrench()
-                self.tcp_state['actualForce'] = self.getActualTCPForce()
+                self.tcp_state['actualForce'] = self.getActualTCPForce() 
+                a = time.time()
+                if self.plotjuggler:  #241231_plotjuggler             
+                    self.UDP_client.send_data(self.joint_state)  
+                    # print(self.joint_state)
+                # print(time.time() - a)
                 time.sleep(self.refreshRate)
-                
-                debug = False
-                if debug:
-                    print(self.tcp_state['actualPos'])
-                    
-                if count == 5:
-                    self.RelativeMove()
 
         except KeyboardInterrupt:
             self.disconnect()
             print("\nDisconnect the communication.")
+        except Exception as e:
+            self.connection = False
+            self.disconnect()
+            print(e)
     # Read UR Status
     def readUR(self):
         try:
@@ -78,6 +86,8 @@ class UR_State(Thread):
             self.tcp_state['actualSpeed'] = self.getActualTCPSpeed()
             # self.tcp_state['actualForce'] = self.getFtRawWrench()
             self.tcp_state['actualForce'] = self.getActualTCPForce()
+            # if self.plotjuggler:  #241231_plotjuggler             
+            #      self.UDP_client.send_data(self.joint_state)           
         except Exception as e:
             self.connection = False
             self.disconnect()

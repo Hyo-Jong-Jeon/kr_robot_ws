@@ -1,6 +1,6 @@
 {
     "title": "2F Gripper",
     "task_list": [
-        {"task": "Motor_pos", "target": -2000}
+        {"task": "Motor_pos", "target": 0}
     ]
 }

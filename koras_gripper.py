@@ -7,6 +7,8 @@ from threading import Thread
 class KORAS_State(Thread):
     # IP_ADDRESS = "192.168.0.12"  # TCP 서버의 IP 주소
     IP_ADDRESS = "BOOK-E1I23S8BLS.local"  # TCP 서버의 IP 주소
+    # IP_ADDRESS = "10.255.255.254"
+    # IP_ADDRESS = "172.20.135.62"
     # IP_ADDRESS = "127.0.0.1"  # TCP 서버의 IP 주소
     PORT = 12123  # TCP 서버의 포트
     refreshRate = 0.1  # 데이터 수신 주기

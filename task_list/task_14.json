@@ -1,6 +1,6 @@
 {
     "title": "Vacuum Gripper",
     "task_list": [
-        {"task": "Motor_pos", "target": -1000}
+        {"task": "Motor_pos", "target": -2000}
     ]
 }

@@ -184,7 +184,7 @@ class MainWindow(QMainWindow, QThread):
             print(joint_deg)
             
     def keyReleaseEvent(self, event):
-        print("abc")
+        # print("abc")
         return super().keyReleaseEvent(event)
             
     def point_move(self):
@@ -305,6 +305,7 @@ class MainWindow(QMainWindow, QThread):
         self.grp1.start_client()
     def UR_Connect(self):
         self.ur1 = UR_State("192.168.0.12")
+        self.ur1.start()
     def Btn_UR_Connect(self):
         if self.ur1.connection:
             print("Already connected.")
