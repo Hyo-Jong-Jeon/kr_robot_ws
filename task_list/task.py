@@ -212,6 +212,12 @@ def task_12():
     js.save_json()
     return js.task_list
 
+def task_16():
+    js = JsonMaker(title="Demo 4")
+    js.task_list.extend(demo_1())
+    js.save_json()
+    return js.task_list
+
 def demo_1():
     # Tool 3 Dettach Posistion
     js = JsonMaker(title="Demo 1")

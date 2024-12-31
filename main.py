@@ -183,6 +183,10 @@ class MainWindow(QMainWindow, QThread):
             print(self.rad2deg_list(self.ur1.joint_state['actualQ']))
             print(joint_deg)
             
+    def keyReleaseEvent(self, event):
+        print("abc")
+        return super().keyReleaseEvent(event)
+            
     def point_move(self):
         mode = self.point_move_mode
         target = eval(self.ui.lineEdit_25.text())
