@@ -1,5 +1,5 @@
 import time, os, sys, signal
-import socket
+import socket, select
 import json
 
 from threading import Thread
@@ -11,7 +11,9 @@ class KORAS_State(Thread):
     # IP_ADDRESS = "172.20.135.62"
     # IP_ADDRESS = "127.0.0.1"  # TCP 서버의 IP 주소
     PORT = 12123  # TCP 서버의 포트
-    refreshRate = 0.1  # 데이터 수신 주기
+    refreshRate = 0.1  # 데이터 수신 주기 
+    refreshCount = 0  # 데이터 수신 주기
+    refreshMaxCount = 4 # 클라이언트 샘플링 주파수 = 서버 샘플링 주파수 / refreshMaxCount   
     connection = False  # 서버 연결 상태
     finger_pos = 0
     motor_cur = 0
@@ -34,8 +36,13 @@ class KORAS_State(Thread):
         
         while True:
             if self.connection:
-                self.status_recv()
-                time.sleep(0.2)  # 주기적으로 서버 데이터 수신
+            #     self.status_recv()
+            #     time.sleep(0.2)  # 주기적으로 서버 데이터 수신
+                ready_to_read, _, _ = select.select([self.client_socket], [], [], 1.0) 
+                if ready_to_read:
+                    self.status_recv()
+                else:
+                    time.sleep(0.1)  # 데이터가 없으면 짧게 대기
 
     def start_client(self):
         self.start()
@@ -67,25 +74,27 @@ class KORAS_State(Thread):
             try:
                 temp = json.loads(response)
             except json.JSONDecodeError as e:
-                # print("Received data is not valid JSON:", e)
+                print("Received data is not valid JSON:", e)
                 return
             
             # 'recv_data'가 있는지 확인하고 처리
-            recv_data = temp.get("recv_data")
-            if recv_data is None:
+            # recv_data = temp.get("recv_data")
+            # if recv_data is None:
                 # print(f"No 'recv_data' found in server response: {temp}")
                 return
             
             # print(f"Received Modbus data: {recv_data}")
 
             # 'recv_data'에 있는 값을 읽어서 클래스 속성 업데이트
-            self.finger_pos = recv_data.get("finger_pos", 0)
-            self.motor_cur = recv_data.get("motor_cur", 0)
-            self.motor_vel = recv_data.get("motor_vel", 0)
-            self.motor_pos = recv_data.get("motor_pos", 0)
-
-            # print(f"Finger Position: {self.finger_pos}, Motor Current: {self.motor_cur}, Motor Velocity: {self.motor_vel}, Motor Position: {self.motor_pos}")
-
+            if self.refreshCount < self.refreshMaxCount - 1:
+                self.refreshCount += 1
+            else:                
+                self.finger_pos = temp.get("finger_pos", 0)
+                self.motor_cur = temp.get("motor_cur", 0)
+                self.motor_vel = temp.get("motor_vel", 0)
+                self.motor_pos = temp.get("motor_pos", 0)
+                self.refreshCount = 0
+                # print(f"Finger Position: {self.finger_pos}, Motor Current: {self.motor_cur}, Motor Velocity: {self.motor_vel}, Motor Position: {self.motor_pos}")
         except socket.error as e:
             print("Socket error:", e)
         except Exception as e:
@@ -160,4 +169,4 @@ if __name__ == '__main__':
 
     print('Gripper init')
     gripper.initialize()
-    gripper.tcp_close()
+    # gripper.tcp_close()
