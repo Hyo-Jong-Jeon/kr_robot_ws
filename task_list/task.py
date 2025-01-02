@@ -207,8 +207,20 @@ def task_11():
 def task_12():
     # Tool 3 Dettach Posistion
     js = JsonMaker(title="Demo 4")
-    js.tool_linear([0.01, 0, 0.0])
-    js.tool_linear([0.01, 0, 0.0])
+    pos = [-0.292, 0.453, 0.184, -3.122, -0.124, -0.049]
+    move_z = 0.05
+    js.linear_absolute(list_sum(pos, [0.0, 0.0, move_z, 0.0, 0.0, 0.0]), vel_acc=[0.1, 0.2])
+    js.vacuum_on()
+    js.delay(3000)
+    js.linear_absolute(list_sum(pos, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), vel_acc=[0.05, 0.2])
+    js.delay(3000)
+    js.linear_absolute(list_sum(pos, [0.0, 0.0, move_z, 0.0, 0.0, 0.0]), vel_acc=[0.1, 0.2])
+    js.delay(4000)
+    js.linear_absolute(list_sum(pos, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]), vel_acc=[0.05, 0.2])
+    js.vacuum_off()
+    js.delay(3000)
+    js.linear_absolute(list_sum(pos, [0.0, 0.0, move_z, 0.0, 0.0, 0.0]), vel_acc=[0.1, 0.2])
+
     js.save_json()
     return js.task_list
 

@@ -1,6 +1,7 @@
 import time, os, sys, signal
 import socket, select
 import json
+from Flexible_Clinet import FlexibleClient 
 
 from threading import Thread
 
@@ -13,7 +14,7 @@ class KORAS_State(Thread):
     PORT = 12123  # TCP 서버의 포트
     refreshRate = 0.1  # 데이터 수신 주기 
     refreshCount = 0  # 데이터 수신 주기
-    refreshMaxCount = 4 # 클라이언트 샘플링 주파수 = 서버 샘플링 주파수 / refreshMaxCount   
+    refreshMaxCount = 1 # 클라이언트 샘플링 주파수 = 서버 샘플링 주파수 / refreshMaxCount   
     connection = False  # 서버 연결 상태
     finger_pos = 0
     motor_cur = 0
@@ -27,6 +28,7 @@ class KORAS_State(Thread):
     def run(self):
         try:
             self.tcp_connect(self.IP_ADDRESS, self.PORT)
+            self.udp_client = FlexibleClient(protocol='UDP')
         except Exception as e:
             print(e)
             self.connection = False
@@ -74,7 +76,7 @@ class KORAS_State(Thread):
             try:
                 temp = json.loads(response)
             except json.JSONDecodeError as e:
-                print("Received data is not valid JSON:", e)
+                # print("Received data is not valid JSON:", e)
                 return
             
             # 'recv_data'가 있는지 확인하고 처리
@@ -93,6 +95,8 @@ class KORAS_State(Thread):
                 self.motor_cur = temp.get("motor_cur", 0)
                 self.motor_vel = temp.get("motor_vel", 0)
                 self.motor_pos = temp.get("motor_pos", 0)
+                temp = {"gripper_data": temp} # 데이터 감싸기
+                self.udp_client.send_data(temp)
                 self.refreshCount = 0
                 # print(f"Finger Position: {self.finger_pos}, Motor Current: {self.motor_cur}, Motor Velocity: {self.motor_vel}, Motor Position: {self.motor_pos}")
         except socket.error as e:

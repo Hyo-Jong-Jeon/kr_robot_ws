@@ -1,7 +1,16 @@
 {
     "title": "Demo 4",
     "task_list": [
-        {"task": "Tool_Linear", "target": [0.01, 0, 0.0], "vel_acc": [0.1, 0.2], "unit": "m, rad, m/s, m/s^2"},
-        {"task": "Tool_Linear", "target": [0.01, 0, 0.0], "vel_acc": [0.1, 0.2], "unit": "m, rad, m/s, m/s^2"}
+        {"task": "Linear_absolute", "target": [-0.292, 0.453, 0.23399999999999999, -3.122, -0.124, -0.049], "vel_acc": [0.1, 0.2], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Vacuum_on", "target": 0, "unit": " "},
+        {"task": "Delay", "target": 3000, "unit": "ms"},
+        {"task": "Linear_absolute", "target": [-0.292, 0.453, 0.184, -3.122, -0.124, -0.049], "vel_acc": [0.05, 0.2], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 3000, "unit": "ms"},
+        {"task": "Linear_absolute", "target": [-0.292, 0.453, 0.23399999999999999, -3.122, -0.124, -0.049], "vel_acc": [0.1, 0.2], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Delay", "target": 4000, "unit": "ms"},
+        {"task": "Linear_absolute", "target": [-0.292, 0.453, 0.184, -3.122, -0.124, -0.049], "vel_acc": [0.05, 0.2], "unit": "m, rad, m/s, m/s^2"},
+        {"task": "Vacuum_off", "target": 0, "unit": " "},
+        {"task": "Delay", "target": 3000, "unit": "ms"},
+        {"task": "Linear_absolute", "target": [-0.292, 0.453, 0.23399999999999999, -3.122, -0.124, -0.049], "vel_acc": [0.1, 0.2], "unit": "m, rad, m/s, m/s^2"}
     ]
 }

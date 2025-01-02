@@ -56,7 +56,8 @@ class UR_State(Thread):
                 # self.tcp_state['actualForce'] = self.getFtRawWrench()
                 self.tcp_state['actualForce'] = self.getActualTCPForce() 
                 if self.plotjuggler:  #241231_plotjuggler             
-                    self.UDP_client.send_data(self.joint_state)  
+                    self.UDP_client.send_data(self.joint_state)
+                    self.UDP_client.send_data(self.tcp_state) 
                     # print(self.joint_state)                
                 time.sleep(self.refreshRate)
 
