@@ -5,16 +5,20 @@ import json
 
 
 class FlexibleClient:
-    def __init__(self, host="BOOK-E1I23S8BLS.local", port=4000, protocol='UDP', send_interval=0.1, receive_interval=1.0):
+    hostname = "BOOK-E1I23S8BLS.local"
+    def __init__(self, port=4000, protocol='UDP', send_interval=0.1, receive_interval=1.0):
         """
         TCP/UDP 클라이언트 초기화
-        :param host: 서버 호스트
-        :param port: 서버 포트
         :param protocol: 'TCP' 또는 'UDP'
         :param send_interval: 주기적으로 데이터를 전송하는 간격 (초)
         :param receive_interval: 수신 데이터를 기다리는 간격 (초)
-        """
-        self.host = host
+        """        
+        try:
+            self.ip_address = socket.gethostbyname(self.hostname)
+            print(f"Resolved IP address: {self.ip_address}")
+        except socket.gaierror:
+            print(f"Failed to resolve hostname: {self.hostname}")
+            exit()
         self.port = port
         self.protocol = protocol.upper()  # TCP 또는 UDP
         self.send_interval = send_interval
@@ -33,8 +37,8 @@ class FlexibleClient:
         TCP 연결 설정
         """
         if self.protocol == 'TCP':
-            self.client_socket.connect((self.host, self.port))
-            print(f"Connected to {self.host}:{self.port} via TCP")
+            self.client_socket.connect((self.ip_address, self.port))
+            print(f"Connected to {self.ip_address}:{self.port} via TCP")
 
     def send_data(self, data):
         """
@@ -45,8 +49,8 @@ class FlexibleClient:
             if self.protocol == 'TCP':
                 self.client_socket.sendall(json.dumps(data).encode('utf-8'))
             elif self.protocol == 'UDP':
-                self.client_socket.sendto(json.dumps(data).encode('utf-8'), (self.host, self.port))
-            print(f"Sent: {data}")
+                self.client_socket.sendto(json.dumps(data).encode('utf-8'), (self.ip_address, self.port))
+            # print(f"Sent: {data}")
         except Exception as e:
             print(f"Error sending data: {e}")
             self.running = False

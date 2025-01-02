@@ -10,7 +10,7 @@ from Flexible_Clinet import FlexibleClient #241231_plotjuggler
 
 class UR_State(Thread):
     plotjuggler = False
-    refreshRate = 0.1 # Second
+    refreshRate = 0.01 # Second
     connection = False
     stop_state = {'ProtectiveStopped': False, 'EmergencyStopped': False}
     robot_state = {'RobotMode': '', 'RobotStatus': '', 'SafetyMode': '', 'ActualRobotVoltage': 0, 'ActualRobotCurrent': 0}
@@ -55,11 +55,9 @@ class UR_State(Thread):
                 self.tcp_state['actualSpeed'] = self.getActualTCPSpeed()
                 # self.tcp_state['actualForce'] = self.getFtRawWrench()
                 self.tcp_state['actualForce'] = self.getActualTCPForce() 
-                a = time.time()
                 if self.plotjuggler:  #241231_plotjuggler             
                     self.UDP_client.send_data(self.joint_state)  
-                    # print(self.joint_state)
-                # print(time.time() - a)
+                    # print(self.joint_state)                
                 time.sleep(self.refreshRate)
 
         except KeyboardInterrupt:

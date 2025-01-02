@@ -153,7 +153,7 @@ class MainWindow(QMainWindow, QThread):
         self.ui.pushButton_80.clicked.connect(lambda: self.start_json_task(30))
         self.start() # start QThread
         self.startTimer()
-        
+                
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_S:
             self.stop_json_task()
