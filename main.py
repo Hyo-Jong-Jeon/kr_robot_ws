@@ -16,6 +16,7 @@ from main_window_ui import Ui_MainWindow
 # Custum modules #
 from ur_state import UR_State
 from koras_gripper import KORAS_State
+from aidin_FT import aidin_FT
 
 class MainWindow(QMainWindow, QThread):
     debug = False
@@ -33,6 +34,7 @@ class MainWindow(QMainWindow, QThread):
     offset_force = [0, 0, 0, 0, 0, 0]
     point_move_mode = ''
     flag_tool_direction = False
+    FT = True
 
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -303,6 +305,9 @@ class MainWindow(QMainWindow, QThread):
     def gripper_connect(self):
         self.grp1 = KORAS_State()
         self.grp1.start_client()
+    def FT_sensor_connect(self):
+        self.FT_sensor1 = aidin_FT()
+        self.FT_sensor1.start_client()        
     def UR_Connect(self):
         self.ur1 = UR_State("192.168.0.12")
         self.ur1.start()
@@ -321,6 +326,8 @@ class MainWindow(QMainWindow, QThread):
         self.ur1.readUR()
         self.offset_force = self.ur1.tcp_state['actualForce']
         # return self.ur1.zeroFtSensor()
+        if self.FT:
+            self.FT_sensor1.set_bias()        
     def alarm_release(self):
         if self.debug:
             print('Alarm_Release_callback')
@@ -436,6 +443,8 @@ class MainWindow(QMainWindow, QThread):
     def run(self):
         self.UR_Connect()
         self.gripper_connect()
+        if self.FT:
+            self.FT_sensor_connect()
         while True:
             try:
                 self.do_move_btn_task()
