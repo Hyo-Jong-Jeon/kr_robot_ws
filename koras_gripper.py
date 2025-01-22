@@ -105,7 +105,7 @@ class KORAS_State(Thread):
             print(e)
 
     def initialize(self):
-        self.grp_command_send({"command": 101}, "Initialize Send")
+        self.grp_command_send({"command": 101, "value_1": 0, "value_2": 0}, "Initialize Send")
 
     def open(self):
         self.grp_command_send({"command": 102}, "Open Send")

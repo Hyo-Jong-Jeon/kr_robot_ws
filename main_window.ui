@@ -1669,7 +1669,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </font>
     </property>
     <property name="text">
-     <string>Tool 2 D</string>
+     <string>Tool 2 A</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_43">

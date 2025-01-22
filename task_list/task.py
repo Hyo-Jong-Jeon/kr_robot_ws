@@ -220,15 +220,23 @@ def task_12():
     js.vacuum_off()
     js.delay(3000)
     js.linear_absolute(list_sum(pos, [0.0, 0.0, move_z, 0.0, 0.0, 0.0]), vel_acc=[0.1, 0.2])
-
+    # js.task_list.extend(zeus_DRAM_grasp())
     js.save_json()
     return js.task_list
 
 def task_16():
     js = JsonMaker(title="Demo 4")
     js.task_list.extend(demo_1())
+    js.task_list.extend(demo_2())
+    js.task_list.extend(demo_3())
     js.save_json()
     return js.task_list
+
+def task_17():
+    js = JsonMaker(title="Demo 4")
+    js.task_list.extend(zeus_DRAM_grasp())
+    js.save_json()
+    return js.task_list 
 
 def demo_1():
     # Tool 3 Dettach Posistion
@@ -403,6 +411,19 @@ def demo_3_reverse():
     js.linear_absolute(list_sum(pos2, [0.0, 0.0, move_z, 0.0, 0.0, 0.0]), vel_acc=[0.2, 0.5])
     js.gripper_finger_pos(0)
     home_pos(js)
+    js.task_list.extend(task_5())
+    
+    js.save_json()
+    return js.task_list
+
+def zeus_DRAM_grasp():
+    # 제우스 램 파지 작업업
+    js = JsonMaker(title="Zeus DRAM Grasp Task!")
+    pos1 = [-0.411, 0.296, 0.3, -3.141, 0.0, -0.0]
+    home_pos(js)
+    js.task_list.extend(task_4())
+    home_pos(js)
+    js.linear_absolute(list_sum(pos1, [0.0, 0.0, -0.01, 0.0, 0.0, 0.0]))
     js.task_list.extend(task_5())
     
     js.save_json()

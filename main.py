@@ -34,7 +34,7 @@ class MainWindow(QMainWindow, QThread):
     offset_force = [0, 0, 0, 0, 0, 0]
     point_move_mode = ''
     flag_tool_direction = False
-    FT = True
+    FT = False
 
     def __init__(self):
         super(MainWindow, self).__init__()

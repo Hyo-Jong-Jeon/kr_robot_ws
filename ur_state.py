@@ -17,7 +17,7 @@ class UR_State(Thread):
     joint_state = {'actualQ': [0,0,0,0,0,0], 'actualQd': [0,0,0,0,0,0], 'actualCurrent': [0,0,0,0,0,0]}
     tcp_state = {'actualPos': [0,0,0,0,0,0], 'actualSpeed': [0,0,0,0,0,0], 'actualForce': [0,0,0,0,0,0]}
     
-    def __init__(self, IP_ADDRESS='192.168.0.16', plotjuggler = True):
+    def __init__(self, IP_ADDRESS='192.168.0.44', plotjuggler = True):
         try:
             super().__init__()
             self.rtde_r = rtde_receive.RTDEReceiveInterface(IP_ADDRESS)
